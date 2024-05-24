@@ -1,8 +1,9 @@
 import React from 'react'
+import ProductList from '../../components/ProductList/ProductList'
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+   <ProductList/>
   )
 }
 
