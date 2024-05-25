@@ -1,72 +1,53 @@
-import {useState} from 'react'
 import './Cart.scss'
-import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-
+import { selectCart, addToCart, removeFromCart } from '../../../redux/cartSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Cart = () => {
-    const [count, setCount] = useState(0)
-    const ButtonGroup = Button.Group;
-    const increase = () => {
-      setCount(count + 1)
+    const dispatch = useDispatch();
+    const cart = useSelector(selectCart);
 
-    }
-    const decrease = () => {
-       if(count > 0){
-        setCount(count - 1)
-       }
+    const handleAddItem = (item) => {
+        dispatch(addToCart({ name: item.name, price: item.price, amount: 1 }));
+    };
 
-    }
+    const handleRemoveItem = (item) => {
+        if (item.amount > 1) {
+            dispatch(addToCart({ name: item.name, price: item.price, amount: -1 }));
+        } else {
+            dispatch(removeFromCart({ name: item.name }));
+        }
+    };
 
-  return (
-   <div className='cart-container'>
-   <h5>Cart </h5>
-   <div className='cart-card '>
-    <div className='d-flex w-100 cart-item'>
-        <div className='d-flex w-100 justify-content-between' >
-        <div >
-        Samsung S22
-
-        <div className='main-color' >
-        $1000
-
+    return (
+        <div className='cart-container'>
+            <h5>Cart </h5>
+            <div className='cart-card'>
+            {cart.length === 0 && <div className='empty-cart'>
+              Cart is empty</div>}
+                {cart.map((item) => (
+                    <div key={item.name} className='d-flex w-100 cart-item'>
+                        <div className='d-flex w-100 justify-content-between'>
+                            <div>
+                                {item.name}
+                                <div className='main-color'>
+                                    {item.price}₺
+                                </div>
+                            </div>
+                            <Button.Group>
+                                <Button onClick={() => handleRemoveItem(item)} icon={<MinusOutlined />} />
+                                <span className='cart-count'>
+                                    {item.amount}
+                                </span>
+                                <Button onClick={() => handleAddItem(item)} icon={<PlusOutlined />} />
+                            </Button.Group>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
-        </div>
-        <ButtonGroup>
-          <Button onClick={decrease} icon={<MinusOutlined />} />
-         <span className='cart-count'>
-            {count}
-         </span>
-          <Button onClick={increase} icon={<PlusOutlined />} />
-        </ButtonGroup>
-        </div>
+    );
+};
 
-    </div>
-    <div className='d-flex w-100 cart-item'>
-        <div className='d-flex w-100 justify-content-between' >
-        <div >
-        Samsung S22
-
-        <div className='main-color' >
-        $1000
-
-        </div>
-        </div>
-        <ButtonGroup>
-          <Button onClick={decrease} icon={<MinusOutlined />} />
-         <span className='cart-count'>
-            {count}
-         </span>
-          <Button onClick={increase} icon={<PlusOutlined />} />
-        </ButtonGroup>
-        </div>
-
-    </div>
- 
-
-   </div>
-   </div>
-  )
-}
-
-export default Cart
+export default Cart;

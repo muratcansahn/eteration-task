@@ -3,13 +3,13 @@ import './ProductCard.scss';
 import Button  from '../Global/Button/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, selectCart } from '../../redux/cartSlice';
+import { toast } from 'react-toastify';
 const ProductCard = ({product}) => {
     const cart = useSelector(selectCart);
     const dispatch = useDispatch();
-    console.log(cart)
-    console.log(product)
     const handleAddToCart = () => {
-        dispatch(addToCart({ name: product.name, price: product.price }));
+        dispatch(addToCart({ name: product.name, price: product.price,amount: 1 }));
+        toast.success('Product added to cart');
     };
     return (
 <div className='product-card'>
