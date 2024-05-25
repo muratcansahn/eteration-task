@@ -1,9 +1,18 @@
 import React from 'react';
 import './ProductCard.scss';
 import Button  from '../Global/Button/Button';
-const ProductCard = ({product}) => (
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart, selectCart } from '../../redux/cartSlice';
+const ProductCard = ({product}) => {
+    const cart = useSelector(selectCart);
+    const dispatch = useDispatch();
+    console.log(cart)
+    console.log(product)
+    const handleAddToCart = () => {
+        dispatch(addToCart({ name: product.name, price: product.price }));
+    };
+    return (
 <div className='product-card'>
-
     <img src={product.image} alt={product.name}
     className='product-card-image'
     />
@@ -11,12 +20,10 @@ const ProductCard = ({product}) => (
     <h4 >
         {product.name}
     </h4>
-    <Button text='Add to Cart'/>
-  
-
-    
-
+    <Button text='Add to Cart'
+    onClick={handleAddToCart}
+    />
 </div>
- 
-);
+    )
+}
 export default ProductCard;
