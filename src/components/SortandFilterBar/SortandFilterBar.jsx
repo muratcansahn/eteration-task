@@ -1,5 +1,5 @@
 import "./SortandFilterBar.scss"
-import { Input, Radio, Space ,Checkbox} from 'antd';
+import {Radio, Space ,Checkbox} from 'antd';
 import { AutoComplete } from 'antd';
 import { v4 as uuid } from 'uuid'
 import { SearchOutlined } from '@ant-design/icons';
@@ -48,11 +48,8 @@ const SortandFilterBar = ({onChange,value,
         <span className="ms-2">Search</span>
       </>
       }
-
     />
-
-    <div className="mt-2 h-75">
-        
+    <div className="mt-2 h-75">  
      {autoCompleteOptions.map (option => (
         <Checkbox key={uuid()} onChange={(e) => {
             if(e.target.checked){
@@ -61,8 +58,6 @@ const SortandFilterBar = ({onChange,value,
             else{
                 setSelectedTags(selectedTags.filter(tag => tag !== option.value))
             }
-
-            
         }}
         checked={selectedTags.includes(option.value)}
         >{option.value}</Checkbox>
