@@ -1,0 +1,33 @@
+@import "../../variables.scss";
+.product-detail-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    border:  1px solid #e0e0e0;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    height: 350px;
+    margin-right: 32px;
+    padding: 16px;
+    overflow: hidden;
+    .product-detail-image{
+        width: 100%;
+        height: 100%;
+        padding: 16px 0px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .product-price{
+        font-size: 18px;
+        font-weight: 600;
+        color: $maincolor;
+    }
+    .product-title{
+        margin-top: 16px;
+    }
+    .product-description{
+       font-size: 12px;
+    }
+}
