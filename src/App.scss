@@ -1,4 +1,22 @@
-
+@import 'variables.scss';
 p{
   margin-bottom: 0!important;
+}
+.disable-color{
+  color: $disablecolor;
+}
+.main-color{
+  color: $maincolor;
+}
+.font-12{
+  font-size: 12px;
+}
+.font-14{
+  font-size: 14px;
+}
+.font-16{
+  font-size: 16px;
+}
+.font-bold{
+  font-weight: bold;
 }

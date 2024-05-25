@@ -1,5 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
+import Cart from './components/Global/Cart/Cart'
+import Checkout from './components/Global/Checkout/Checkout'
 
 const Layout = ({children}) => {
   return (
@@ -9,7 +11,9 @@ const Layout = ({children}) => {
 
     </div>
       <div className='w-25'>
-        asdasd
+  <Cart/>
+  <Checkout/>
+  
       </div>
     </div>
   )
