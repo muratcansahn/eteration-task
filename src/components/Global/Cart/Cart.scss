@@ -14,17 +14,14 @@
     &:hover{
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
-
 }
 h5{
     color: $disablecolor;
     font-size: 18px;
 }
 .cart-container{
-    
     margin-top: 24px;
-  
-    .cart-count{
+   .cart-count{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -38,7 +35,6 @@ h5{
     .cart-item:not(:first-child){
         margin-top: 10px;
     }
-   
 }
 .empty-cart{
     display: flex;
