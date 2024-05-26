@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.scss'
 import "../../App.scss"
-import { Link , BrowserRouter as Router} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AutoComplete } from 'antd';
 import { SearchOutlined ,ShoppingCartOutlined ,UserOutlined} from '@ant-design/icons';
 import { useSelector,useDispatch } from 'react-redux';

@@ -34,7 +34,7 @@ const HomePage = () => {
                 .catch((error) => console.error("Error fetching products:", error))
                 .finally(() => setLoading(false));
         }, 1000);
-    }, []);
+    }, [dispatch]);
 
     const onChange = (e) => {
         setValue(e.target.value);
