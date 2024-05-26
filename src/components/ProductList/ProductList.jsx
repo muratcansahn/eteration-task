@@ -29,14 +29,18 @@ const ProductList = ({ products }) => {
     };
 
     return (
-        <div className={`${!isMobile ? "ms-4" : ""} h-100 w-100`}>
+        <div className={`${!isMobile ? "ms-4" : ""} h-100 justify-content-center w-100`}>
             <div className="d-flex flex-wrap gap-4 mt-4 h-100">
                 {displayedProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
             </div>
             {products.length > 11 && (
-                <div className={`${!isMobile ? "" : "flex-column align-items-center "} d-flex  mt-4 w-100`}>
+                <div
+                    className={`${
+                        !isMobile ? "" : "flex-column align-items-center "
+                    } d-flex justify-content-center mt-4 w-100`}
+                >
                     <Pagination
                         current={currentPage}
                         pageSize={pageSize}

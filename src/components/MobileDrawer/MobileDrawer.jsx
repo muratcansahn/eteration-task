@@ -20,20 +20,19 @@ const MobileDrawer = ({
     setOpen(false);
   };
   return (
-    <div className='mt-4 d-flex justify-content-center '>
-      <Button text={"Sort And Filter"} onClick={showDrawer} className={"py-2"}>
-      </Button>
-      <Drawer title="Sort And Filter" onClose={onClose} open={open}>
-      <MobileSortAndFilterBar
-        onChange={onChange}
-        autoCompleteOptions={autoCompleteOptions}
-        setSearchQuery={(query) => dispatch(setSearchQuery(query))} 
-        value={value}
-        setSelectedTags={setSelectedTags}
-        selectedTags={selectedTags}
-      /> 
-      </Drawer>
-    </div>
+      <div className="mt-4 d-flex justify-content-center ">
+          <Button text={"Sort And Filter"} onClick={showDrawer} className={"py-2"} />
+          <Drawer title="Sort or Filter Products" onClose={onClose} open={open}>
+              <MobileSortAndFilterBar
+                  onChange={onChange}
+                  autoCompleteOptions={autoCompleteOptions}
+                  setSearchQuery={(query) => dispatch(setSearchQuery(query))}
+                  value={value}
+                  setSelectedTags={setSelectedTags}
+                  selectedTags={selectedTags}
+              />
+          </Drawer>
+      </div>
   );
 };
 export default MobileDrawer;

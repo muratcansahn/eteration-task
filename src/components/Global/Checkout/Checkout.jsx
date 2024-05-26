@@ -4,7 +4,7 @@ import "../../Global/Cart/Cart.scss"
 import Button from "../../Global/Button/Button"
 import { useSelector,useDispatch } from 'react-redux';
 import { selectCart,removeAllFromCart } from '../../../redux/cartSlice';
-import { calcTotalPrice } from '../../../const';
+import { calcTotalPrice } from "../../../utils";
 
 
 

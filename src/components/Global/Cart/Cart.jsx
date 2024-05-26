@@ -21,26 +21,30 @@ const Cart = () => {
     };
 
     return (
-        <div className='cart-container'>
+        <div className="cart-container">
             <h5>Cart </h5>
-            <div className='cart-card'>
-            {cart.length === 0 && <div className='empty-cart'>
-              Cart is empty</div>}
-                {cart.map((item) => (
-                    <div key={item.name} className='d-flex w-100 cart-item'>
-                        <div className='d-flex w-100 justify-content-between'>
+            <div className="cart-card">
+                {cart?.length === 0 && <div className="empty-cart">Cart is empty</div>}
+                {cart?.map((item) => (
+                    <div key={item.name} className="d-flex w-100 cart-item">
+                        <div className="d-flex w-100 justify-content-between">
                             <div>
                                 {item.name}
-                                <div className='main-color'>
-                                    {item.price}₺
-                                </div>
+                                <div className="main-color">{item.price}₺</div>
                             </div>
                             <Button.Group>
-                                <Button onClick={() => handleRemoveItem(item)} icon={<MinusOutlined />} />
-                                <span className='cart-count'>
-                                    {item.amount}
-                                </span>
-                                <Button onClick={() => handleAddItem(item)} icon={<PlusOutlined />} />
+                                <Button
+                                    onClick={() => handleRemoveItem(item)}
+                                    icon={<MinusOutlined />}
+                                    aria-label="Remove item"
+                                />
+
+                                <span className="cart-count">{item.amount}</span>
+                                <Button
+                                    onClick={() => handleAddItem(item)}
+                                    icon={<PlusOutlined />}
+                                    aria-label="Add item"
+                                />
                             </Button.Group>
                         </div>
                     </div>

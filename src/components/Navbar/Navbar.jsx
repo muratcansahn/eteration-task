@@ -6,7 +6,7 @@ import { AutoComplete } from 'antd';
 import { SearchOutlined ,ShoppingCartOutlined ,UserOutlined} from '@ant-design/icons';
 import { useSelector,useDispatch } from 'react-redux';
 import { selectCart } from '../../redux/cartSlice';
-import { calcTotalPrice } from "../../const";
+import { calcTotalPrice } from "../../utils";
 import { setSearchQuery } from "../../redux/searchQuerySlice";
 import useIsMobile from "../../hooks/useIsMobile";
 
@@ -23,28 +23,29 @@ const Navbar = () => {
                         <Link to="/" className="company-title text-decoration-none">
                             eteration
                         </Link>
-                        {!useIsMobile() ?   <AutoComplete
-                            style={{ width: "100%" }}
-                            options={autoCompleteOptions}
-                            filterOption={(inputValue, option) =>
-                                option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-                            }
-                            onSelect={(value) => {
-                                dispatch(setSearchQuery(value));
-                            }}
-                            placeholder={
-                                <>
-                                    <SearchOutlined />
-                                    <span className="ms-2">Search</span>
-                                </>
-                            }
-                        /> : null}
-                      
+                        {!useIsMobile() ? (
+                            <AutoComplete
+                                style={{ width: "100%" }}
+                                options={autoCompleteOptions}
+                                filterOption={(inputValue, option) =>
+                                    option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+                                }
+                                onSelect={(value) => {
+                                    dispatch(setSearchQuery(value));
+                                }}
+                                placeholder={
+                                    <>
+                                        <SearchOutlined />
+                                        <span className="ms-2">Search</span>
+                                    </>
+                                }
+                            />
+                        ) : null}
                     </div>
                     <div className="d-flex w-50 justify-content-end">
                         <div className="d-flex align-items-center">
                             <ShoppingCartOutlined className="cart-icon me-1" style={{ fontSize: "1.5em" }} />
-                            <p>{calcTotalPrice(cart)}₺</p>
+                            <p aria-label="total-price">{calcTotalPrice(cart)}₺</p>
                         </div>
                         <div className="d-flex align-items-center ms-3">
                             <UserOutlined className="cart-icon me-1" style={{ fontSize: "1.5em" }} />

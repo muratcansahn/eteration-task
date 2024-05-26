@@ -19,17 +19,17 @@ const HomePage = () => {
 
   useEffect(() => {
     // Fetch products from the API
-    fetch('https://5fc9346b2af77700165ae514.mockapi.io/products')
-      .then(response => response.json())
-      .then(data => {
-        setProducts(data);
-        setFilteredProducts(data);
-        // Extract tags for autoCompleteOptions
-        const tags = data.map(product => product.name);
-        const autoCompleteOptionsTag = tags.map(tag => ({ value: tag }));
-        dispatch(setAutoCompleteOptions(autoCompleteOptionsTag));
-      })
-      .catch(error => console.error('Error fetching products:', error));
+    fetch("https://5fc9346b2af77700165ae514.mockapi.io/products")
+        .then((response) => response.json())
+        .then((data) => {
+            setProducts(data);
+            setFilteredProducts(data);
+            // Extract tags for autoCompleteOptions
+            const tags = data.map((product) => product.name);
+            const autoCompleteOptionsTag = tags.map((tag) => ({ value: tag }));
+            dispatch(setAutoCompleteOptions(autoCompleteOptionsTag));
+        })
+        .catch((error) => console.error("Error fetching products:", error));
   }, [dispatch]);
 
   const onChange = (e) => {
