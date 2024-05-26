@@ -27,6 +27,8 @@ Spinner gösterme amaçlı api isteklerine 1 saniyelik timeout ekledim.(Simule e
 Product detail kısmındaki kartın description kısmını tasarıma benzemesi için kestim,tüm descriptionu almak kartın yapısını bozacaktı.
 Daha önceden jest ile unit test yazmadığım için testleri eksik olarak yazdığımın farkındayım,bu konunun üzerine eğileceğim.
 
+Projenin yayında olan hali: https://main--hilarious-crepe-a1352e.netlify.app/
+
 
 
 
