@@ -3,6 +3,7 @@ import './ProductList.scss';
 import ProductCard from '../ProductCard/ProductCard';
 import { Pagination, Select } from 'antd';
 import useIsMobile from "../../hooks/useIsMobile";
+import { v4 as uuid } from "uuid";
 
 const { Option } = Select;
 
@@ -32,11 +33,12 @@ const ProductList = ({ products }) => {
         <div className={`${!isMobile ? "ms-4" : ""} h-100 justify-content-center w-100`}>
             <div className="d-flex flex-wrap gap-4 mt-4 h-100">
                 {displayedProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={uuid()} product={product} />
                 ))}
             </div>
             {products.length > 11 && (
                 <div
+                    data-testid="pagination-component"
                     className={`${
                         !isMobile ? "" : "flex-column align-items-center "
                     } d-flex justify-content-center mt-4 w-100`}

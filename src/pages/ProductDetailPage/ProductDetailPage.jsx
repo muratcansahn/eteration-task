@@ -25,10 +25,10 @@ const ProductDetailPage = () => {
     };
     return (
         <div className="product-detail-wrapper">
-            <div className="w-md-50 w-lg-100 h-100">
+            <div className="h-100 w-100">
                 <img src={product.image} alt={product.name} className="product-detail-image" />
             </div>
-            <div className="w-md-50 w-lg-100 h-100 ms-3">
+            <div className="h-100 w-100 ms-3">
                 <div className="d-flex flex-column">
                     <h4 className="product-title">{product.name}</h4>
                     <span className="product-price">{product.price}₺</span>
