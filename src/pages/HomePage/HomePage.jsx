@@ -5,6 +5,8 @@ import './HomePage.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAutoCompleteOptions } from '../../redux/autoCompleteOptionsSlice';
 import { setSearchQuery } from '../../redux/searchQuerySlice'; 
+import useIsMobile from "../../hooks/useIsMobile";
+import MobileDrawer from "../../components/MobileDrawer/MobileDrawer";
 
 const HomePage = () => {
   const [value, setValue] = useState(1);
@@ -64,19 +66,31 @@ const HomePage = () => {
       setFilteredProducts([...products]);
     }
   }, [selectedTags, products]);
-
+const isMobile = useIsMobile();
+ 
   return (
-    <div className='d-flex home-page-container'>
-      <SortandFilterBar
-        onChange={onChange}
-        autoCompleteOptions={autoCompleteOptions}
-        setSearchQuery={(query) => dispatch(setSearchQuery(query))} 
-        value={value}
-        setSelectedTags={setSelectedTags}
-        selectedTags={selectedTags}
-      />
-      <ProductList products={filteredProducts} />
-    </div>
+      <div className={`d-flex home-page-container ${isMobile ? "flex-column" : ""}`}>
+          {isMobile ? (
+              <MobileDrawer
+                  value={value}
+                  onChange={onChange}
+                  autoCompleteOptions={autoCompleteOptions}
+                  setSearchQuery={(query) => dispatch(setSearchQuery(query))}
+                  setSelectedTags={setSelectedTags}
+                  selectedTags={selectedTags}
+              />
+          ) : (
+              <SortandFilterBar
+                  onChange={onChange}
+                  autoCompleteOptions={autoCompleteOptions}
+                  setSearchQuery={(query) => dispatch(setSearchQuery(query))}
+                  value={value}
+                  setSelectedTags={setSelectedTags}
+                  selectedTags={selectedTags}
+              />
+          )}
+          <ProductList products={filteredProducts} />
+      </div>
   );
 }
 

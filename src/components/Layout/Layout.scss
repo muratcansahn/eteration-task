@@ -1,0 +1,19 @@
+@import "../../constants.scss";
+.first-column{
+    @media screen and (min-width: $mobile-breakpoint){
+        width: 75%;
+    }   
+
+}
+.second-column{
+    @media screen and (min-width: $mobile-breakpoint){
+        width: 25%;
+    }
+}
+.main-wrapper{
+    display: flex;
+    width: 100%;
+    @media screen and (max-width: $mobile-breakpoint){
+        flex-direction: column;
+    }
+}

@@ -1,5 +1,9 @@
-@import '../../variables.scss';
+@import '../../constants.scss';
 .product-card{
+    @media screen and (max-width: $mobile-breakpoint) {
+        width: 46%
+        
+    }
     display: flex;
     flex-direction: column;
     justify-content: space-between;

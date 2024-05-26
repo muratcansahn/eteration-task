@@ -1,6 +1,11 @@
-@import "../../variables.scss";
+@import "../../constants.scss";
 .product-detail-wrapper{
     display: flex;
+    @media screen and (max-width: $mobile-breakpoint) {
+        flex-direction: column;
+        height: auto;
+        margin-right: 0px;
+    }
     justify-content: center;
     align-items: center;
     margin-top: 50px;
@@ -11,6 +16,10 @@
     padding: 16px;
     overflow: hidden;
     .product-detail-image{
+        @media screen and (max-width: $mobile-breakpoint)
+         {
+            margin-top: 24px;
+        }
         width: 100%;
         height: 100%;
         padding: 16px 0px;
