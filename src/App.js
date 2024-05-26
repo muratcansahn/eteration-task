@@ -7,20 +7,22 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Layout from './components/Layout/Layout';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import NotFound from "./components/NotFound/NotFound";
 
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <ToastContainer position="top-center"/>
-      <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/product/:id" element={<ProductDetailPage />} />
-      </Routes>
-      </Layout>
-    </>
+      <>
+          <Navbar />
+          <ToastContainer position="top-center" />
+          <Layout>
+              <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/product/:id" element={<ProductDetailPage />} />
+                  <Route path="*" element={<NotFound />} />
+              </Routes>
+          </Layout>
+      </>
   );
 }
 
