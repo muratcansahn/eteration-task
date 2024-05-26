@@ -22,7 +22,7 @@ const ProductDetailPage = () => {
                 .catch((error) => console.error("Error fetching product:", error));
             setLoading(false);
         }, 1000);
-    }, [id]);
+    }, []);
     const { id } = useParams();
     const dispatch = useDispatch();
     const handleAddToCart = () => {
