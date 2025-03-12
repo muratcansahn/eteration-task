@@ -19,7 +19,7 @@ When a product is added to the cart, it is also saved to local storage.
 Upon initial loading, if there are no items in local storage, the cart is empty; otherwise, it continues with previous values.
 Autocomplete functionality is available in the product search section.
 
-Notes
+## Notes
 I didn't feel the need to use debounce/throttle in the search section since I didn't have an appropriate API for searching.
 I added a 1-second timeout to API requests to display the spinner (for simulation purposes).
 I truncated the description part of the card in the product detail section to match the design; using the full description would have disrupted the card structure.
